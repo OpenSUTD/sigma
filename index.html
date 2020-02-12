@@ -158,21 +158,22 @@
 						<section style="max-width: 60%">
 							<h3>Get Updates</h3>
 							<p>Sign up here to get updates on Sigma!</p>
-							<form method="post" action="#">
+							<form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSdk8PUoUirwDagiX7sz-JIJp80azOkYvfBoLoffvIXccD6BiQ/formResponse?" target="hidden_iframe" onsubmit="submitted=true">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
+										<input type="text" name="entry.129506817" id="entry.129506817" required/>
 									</div>
 									<div class="field">
 										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
+										<input type="email" name="entry.311669863" id="entry.311669863" required />
 									</div>
 								</div>
 								<ul class="actions">
 									<li><input type="submit" value="Send Message" /></li>
 								</ul>
 							</form>
+							<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
 						</section>
 					</footer>
 
@@ -191,6 +192,14 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">var submitted=false;</script>
+			<script type="text/javascript">
+			$('#gform').on('submit', function(e) {
+				$('#gform *').fadeOut(500, function(){
+					$('#gform').replaceWith("Thank you for indicating your interest!<br><br><br>");
+				});
+				});
+			</script>
 
 	</body>
 </html>
